@@ -9,6 +9,4 @@
 
 function fib(num) {
   // add whatever parameters you deem necessary - good luck!
-
-  
 }

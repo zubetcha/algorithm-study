@@ -1,9 +1,9 @@
 # javascript-algorithm
 
-알고리즘과 자바스크립트의 자료 구조에 대한 공부 내용을 기록합니다.
+Udemy의 [Javascript 알고리즘 & 자료구조 마스터 클래스](https://www.udemy.com/course/best-javascript-data-structures/) 강의를 수강하며 공부한 내용을 기록합니다.
 
-- [ ] big O Notation
-- [ ] Recursion
+- [x] big O Notation
+- [x] Recursion
 - [ ] Search
 - [ ] Sort(bubble)
 - [ ] Sort()
