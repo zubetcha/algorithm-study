@@ -1,8 +1,11 @@
-# javascript-algorithm
+# Javascript Algorithm & Data Structure
 
 Udemy의 [Javascript 알고리즘 & 자료구조 마스터 클래스](https://www.udemy.com/course/best-javascript-data-structures/) 강의를 수강하며 공부한 내용을 기록합니다.
 
-- [x] big O Notation
+<br/>
+
+- [x] Big O Notation
+- [ ] Problem Solving Patterns
 - [x] Recursion
 - [ ] Search
 - [ ] Sort(bubble)
