@@ -9,5 +9,6 @@ const collectOddValues = (arr) => {
   };
 
   helper(arr);
+  
   return result;
 };
