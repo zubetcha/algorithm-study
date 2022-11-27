@@ -30,3 +30,7 @@ const same3 = (arr1, arr2) => {
   return true;
 };
 ```
+
+## Divide and Conquer
+
+- 큰 데이터 덩어리를 작은 조각으로 나눔
