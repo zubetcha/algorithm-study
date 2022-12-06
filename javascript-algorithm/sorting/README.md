@@ -35,3 +35,23 @@ sort([23, 45, 6, 12, 13]); // [6, 12, 13, 23, 45]
 [6, 4, 15, 10].sort();
 // [10, 15, 4, 6]
 ```
+
+## Bubble Sort
+
+- sinking sort라고도 불리며, 가장 큰 값이 왼쪽 끝으로 이동한다.
+- 다음 값과 비교하며 교환이 이뤄짐
+
+```javascript
+// ES5
+
+function swap(arr, idx1, idx2) {
+  let temp = arr[idx];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
+}
+
+// ES2015
+const swap = (arr, idx1, idx2) => {
+  [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+};
+```
