@@ -8,11 +8,11 @@ class Node {
   }
 }
 
-let first = new Node("Hi");
+let first = new Node('Hi');
 first.next = new Node('there');
 first.next.next = new Node('how');
-first.next.next.next = new Node("are");
-first.next.next.next.next = new Node("you");
+first.next.next.next = new Node('are');
+first.next.next.next.next = new Node('you');
 
 class SinglyLinkedList {
   constructor() {
@@ -43,9 +43,40 @@ class SinglyLinkedList {
 
     return this;
   }
+
+  // 리스트가 비어 있으면 undefined 반환
+  // tail에 접근할 때까지 반복
+  // 마지막에서 두 번째 노드의 next를 null로 재할당
+  // 마지막에서 두 번째 노드를 tail로 설정
+  // 리스트 length -1
+  // 제거한 노드 반환
+  pop() {
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = nul;
+
+      return undefined;
+    }
+
+    let pre;
+    let temp = this.head;
+
+    while (temp) {
+      if (temp.next === null) {
+        pre.next = null;
+        this.tail = pre;
+        this.length--;
+
+        return temp;
+      }
+
+      pre = temp;
+      temp = temp.next;
+    }
+  }
 }
 
 let list = new SinglyLinkedList();
-console.log(list.push("HELLO"));
-console.log(list.push("GOODBYE"));
-console.log(list.push("HIHI"));
+console.log(list.push('HELLO'));
+console.log(list.push('GOODBYE'));
+console.log(list.push('HIHI'));
