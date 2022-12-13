@@ -74,6 +74,22 @@ class SinglyLinkedList {
       temp = temp.next;
     }
   }
+
+  shift() {
+    if (!this.head) {
+      return undefined;
+    }
+
+    const currHead = this.head;
+    this.head = currHead.next;
+    this.length--;
+
+    if (this.length === 0) {
+      this.tail = null;
+    }
+
+    return currHead;
+  }
 }
 
 let list = new SinglyLinkedList();
