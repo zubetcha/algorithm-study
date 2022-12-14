@@ -124,6 +124,17 @@ class SinglyLinkedList {
       counter++;
     }
   }
+
+  set(index, value) {
+    let node = this.get(index);
+
+    if (!node) {
+      return false;
+    }
+
+    node.val = value;
+    return true;
+  }
 }
 
 let list = new SinglyLinkedList();
