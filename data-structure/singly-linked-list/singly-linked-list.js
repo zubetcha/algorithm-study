@@ -90,6 +90,23 @@ class SinglyLinkedList {
 
     return currHead;
   }
+
+  unshift(value) {
+    let newNode = new Node(value);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
+
+    if (this.head) {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length++;
+    return this;
+  }
 }
 
 let list = new SinglyLinkedList();
