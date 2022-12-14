@@ -107,6 +107,23 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length || !typeof index === "number") {
+      return null;
+    }
+
+    let counter = 0;
+    let target = this.head;
+
+    while (counter < this.length) {
+      if (counter === index) {
+        return target;
+      }
+      target = target.next;
+      counter++;
+    }
+  }
 }
 
 let list = new SinglyLinkedList();
