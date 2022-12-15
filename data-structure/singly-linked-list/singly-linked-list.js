@@ -135,9 +135,33 @@ class SinglyLinkedList {
     node.val = value;
     return true;
   }
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) {
+      return false;
+    }
+    if (index === this.length) {
+      return !!this.push(value);
+    }
+    if (index === 0) {
+      return !!this.unshift(value);
+    }
+
+    let newNode = new Node(value);
+    let prevNode = this.get(index - 1);
+    const nextNode = prevNode.next;
+
+    newNode.next = nextNode;
+    prevNode.next = newNode;
+    this.length++;
+
+    return true;
+  }
 }
 
 let list = new SinglyLinkedList();
 console.log(list.push('HELLO'));
 console.log(list.push('GOODBYE'));
 console.log(list.push('HIHI'));
+
+console.log(list.insert(0, 'ZUBETCHA'))
