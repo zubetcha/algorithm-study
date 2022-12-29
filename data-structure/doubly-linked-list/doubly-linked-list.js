@@ -39,7 +39,7 @@ class DoublyLinkedList {
       return undefined;
     }
 
-    let node = this.tail;
+    let oldTail = this.tail;
 
     if (this.length === 1) {
       this.head = null;
@@ -47,14 +47,37 @@ class DoublyLinkedList {
     }
 
     if (this.length > 1) {
-      this.tail = node.prev;
+      this.tail = oldTail.prev;
       this.tail.next = null;
-      node.prev = null;
+      oldTail.prev = null;
     }
 
     this.length--;
 
-    return node;
+    return oldTail;
+  }
+
+  shift() {
+    if (!this.head || !this.length) {
+      return undefined;
+    }
+
+    let oldHead = this.head;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    }
+    
+    if (this.length > 1) {
+      this.head = oldHead.next;
+      this.head.prev = null;
+      oldHead.next = null;
+    }
+
+    this.length--;
+
+    return oldHead;
   }
 }
 
