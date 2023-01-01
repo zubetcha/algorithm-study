@@ -95,37 +95,47 @@ class DoublyLinkedList {
   }
 
   get(index) {
+    // 유효하지 않은 인덱스 
     if (index < 0 || index >= list.length) {
       return null;
     }
 
-    if (index <= list.length / 2) {
-      let count = 0;
-      let target = this.head;
+    if (typeof index !== 'number') {
+      throw new Error('매개변수는 number 타입만 받을 수 있습니다')
+    }
 
-      while (count <= list.length / 2) {
-        if (count === index) {
-          return target;
-        }
+    const lessThanHalf = index <= list.length / 2;
+    let count = lessThanHalf ? 0 : this.length - 1;
+    let current = lessThanHalf ? this.head : this.tail;
 
-        target = target.next;
+    if (lessThanHalf) {
+      while (count !== index) {
+        current = current.next;
         count++;
       }
+
+      return current;
     }
 
-    if (index > list.length / 2) {
-      let count = this.length - 1;
-      let target = this.tail;
-
-      while (count > this.length / 2) {
-        if (count === index) {
-          return target;
-        }
-
-        target = target.prev;
+    if (!lessThanHalf) {
+      while (count !== index) {
+        current = current.prev;
         count--;
       }
+
+      return current;
     }
+  }
+
+  set(index, value) {
+    let target = this.get(index);
+
+    if (!target) {
+      return false;
+    }
+
+    target.val = value;
+    return true;
   }
 }
 
@@ -138,4 +148,6 @@ console.log(list);
 
 list.unshift('Zero');
 
-console.log(list);
+console.log(list.get(1))
+console.log(list.get(3));
+console.log(list.get('가나다'))
