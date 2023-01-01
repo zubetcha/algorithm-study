@@ -23,6 +23,7 @@ const getCombinations = function (arr, selectNumber) {
 
 function solution(k, tangerine) {
   if (k === 1) return 1;
+  
 
   return Math.min(...getCombinations(tangerine, k).map((a) => [...new Set(a)].length));
 }

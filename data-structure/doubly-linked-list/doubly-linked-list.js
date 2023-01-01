@@ -1,5 +1,3 @@
-
- 
 class Node {
   constructor(val) {
     this.val = val;
@@ -7,7 +5,6 @@ class Node {
     this.prev = null;
   }
 }
-
 
 class DoublyLinkedList {
   constructor() {
@@ -18,7 +15,7 @@ class DoublyLinkedList {
 
   push(val) {
     const node = new Node(val);
-    
+
     if (!this.head) {
       this.head = node;
       this.tail = node;
@@ -68,7 +65,7 @@ class DoublyLinkedList {
       this.head = null;
       this.tail = null;
     }
-    
+
     if (this.length > 1) {
       this.head = oldHead.next;
       this.head.prev = null;
@@ -79,20 +76,66 @@ class DoublyLinkedList {
 
     return oldHead;
   }
+
+  unshift(value) {
+    let newNode = new Node(value);
+
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
+    if (this.length > 0) {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length++;
+    return this;
+  }
+
+  get(index) {
+    if (index < 0 || index >= list.length) {
+      return null;
+    }
+
+    if (index <= list.length / 2) {
+      let count = 0;
+      let target = this.head;
+
+      while (count <= list.length / 2) {
+        if (count === index) {
+          return target;
+        }
+
+        target = target.next;
+        count++;
+      }
+    }
+
+    if (index > list.length / 2) {
+      let count = this.length - 1;
+      let target = this.tail;
+
+      while (count > this.length / 2) {
+        if (count === index) {
+          return target;
+        }
+
+        target = target.prev;
+        count--;
+      }
+    }
+  }
 }
 
-const first = new Node(10);
-first.next = new Node(13);
-first.next.prev = first;
- 
-
 const list = new DoublyLinkedList();
-list.push(10);
-list.push(20);
-list.push(30);
-list.push(40);
+list.push('One');
+list.push('Two');
+list.push('Three');
 
+console.log(list);
 
-console.log(list.pop());
+list.unshift('Zero');
 
 console.log(list);
