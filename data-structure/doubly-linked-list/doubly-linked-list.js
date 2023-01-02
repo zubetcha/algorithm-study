@@ -149,22 +149,21 @@ class DoublyLinkedList {
     }
  
     if (index === 0) {
-      this.unshift(value);
+      return !!this.unshift(value);
     }
 
     if (index === this.length) {
-      this.push(value);
+      return !!this.push(value);
     }
 
-    if (index > 0 && index < this.length) {
-      let newNode = new Node(value);
-      let prevNode = this.get(index - 1);
+    let newNode = new Node(value);
+    let prevNode = this.get(index - 1);
+    let nextNode = prevNode.next;
 
-      newNode.next = prevNode.next;
-      newNode.prev = prevNode;
-      prevNode.next.prev = newNode;
-      prevNode.next = newNode;
-    }
+    newNode.next = nextNode;
+    newNode.prev = prevNode;
+    nextNode.prev = newNode;
+    prevNode.next = newNode;
 
     this.length++;
     return true;
@@ -178,8 +177,6 @@ list.push('Three');
 
 console.log(list);
 
-list.unshift('Zero');
+list.insert(1, 'HELLO')
 
-console.log(list.get(1))
-console.log(list.get(3));
-console.log(list.get('가나다'))
+console.log(list)
