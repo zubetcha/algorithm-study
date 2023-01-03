@@ -168,6 +168,37 @@ class DoublyLinkedList {
     this.length++;
     return true;
   }
+
+  remove(index) {
+    // 유효하지 않은 인덱스
+    if (typeof index !== "number") {
+      throw new Error("매개변수는 number 타입만 받을 수 있습니다");
+    }
+
+    if (index < 0 || index >= list.length) {
+      return undefined;
+    }
+
+    if (index === 0) {
+      return this.shift();
+    }
+
+    if (index === this.length - 1) {
+      return this.pop();
+    }
+
+    let prevNode = this.get(index - 1);
+    let targetNode = prevNode.next;
+
+    targetNode.next.prev = prevNode;
+    prevNode.next = targetNode.next;
+
+    targetNode.prev = null;
+    targetNode.next = null;
+    this.length--;
+
+    return targetNode;
+  }
 }
 
 const list = new DoublyLinkedList();
