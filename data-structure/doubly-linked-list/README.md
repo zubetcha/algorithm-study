@@ -117,3 +117,10 @@ psuedocode
 - 제거할 노드의 next와 prev를 null로 설정한다.
 - 리스트의 길이를 1만큼 감소시킨다.
 - 제거한 노드를 반환한다.
+
+## Big O
+
+- Insertion: O(1)
+- Removal: O(1)
+- Searching: O(N)
+- Access: O(N)
